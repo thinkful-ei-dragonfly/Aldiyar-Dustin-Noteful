@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Folder(props) {
-  const folderId = props.match.match.params.folderId;
+  const folderId = props.match.params.folderId;
   // console.log(folderId);
   const filteredNotes = props.state.notes.filter(note => note.folderId === folderId);
   const notes = filteredNotes.map(note => {

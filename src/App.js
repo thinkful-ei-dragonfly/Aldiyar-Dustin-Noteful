@@ -152,7 +152,7 @@ class App extends React.Component {
           <div className='sideBar'>
             <Route exact path='/' render={()=> <SideBarMain state={this.state} />}/>
             <Route path='/folder/:folderId' render={()=> <SideBarFolder state={this.state}/>} />
-            <Route path='/note/:noteId' render={(match, history, location) =>
+            <Route path='/note/:noteId' render={({match, history, location}) =>
               <SideBarNote
                 match={match}
                 history={history}
@@ -162,12 +162,12 @@ class App extends React.Component {
           </div>
           <main>
             <Route exact path='/' render={()=> <Main state={this.state} />} />
-            <Route path='/folder/:folderId' render={(match, history, location)=> <Folder 
+            <Route path='/folder/:folderId' render={({match, history, location})=> <Folder 
             match={match}
             history={history}
             location={location}
             state={this.state} />}/>
-            <Route path='/note/:noteId' render={(match, history, location) => <Note
+            <Route path='/note/:noteId' render={({match, history, location}) => <Note
               match={match}
               history={history}
               location={location}

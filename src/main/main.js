@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import UserContext from "../UserContext";
 
 
 export default function Main(props) {
+
   const noteList = props.state.notes.map((note) => {
     return (
       <div className='note'>
@@ -14,7 +16,14 @@ export default function Main(props) {
       </div>
     );
   });
-  return <div className='noteList'>{noteList}
-  <button className='addNote'>Add Note</button>
-  </div>;
+  return (
+    <UserContext.Consumer>
+      {function renderProp() {
+        return (
+    <div className='noteList'>{noteList}
+      <button className='addNote'>Add Note</button>
+    </div>
+        )
+  }}  
+    </UserContext.Consumer>);
 }
